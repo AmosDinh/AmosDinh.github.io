@@ -1,0 +1,61 @@
+.board{
+    width: 400px;
+}
+.sq{
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-color: #F0D9B5;
+}
+.board div div img{
+    width: 100%;
+    height: auto;
+    /* for js */
+    pointer-events:none;
+}
+
+.board>div:nth-of-type(2n)>div:nth-of-type(2n+1){
+    background-color: #B58863;
+    
+}
+.board>div:nth-of-type(2n+1)>div:nth-of-type(2n){
+    background-color: #B58863;
+
+}
+
+.mind{
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background-color: transparent;
+    margin: 17px 0px 0px 17px;
+    pointer-events:none;
+    
+}
+.moveto div{
+    border-radius: 100%;
+    background-color: #646F40;
+}
+.basepiece {
+
+    background-color: #646F40 !important;
+    
+}
+.enemymove{
+    background-color: rgba(155,199,0,0.41) !important;
+
+}
+
+.rochadepiece {
+    background: -ms-radial-gradient(transparent 0%, transparent 79%, rgba(20,85,0,0.3) 80%) !important; 
+    background: radial-gradient(transparent 0%, transparent 79%, rgba(20,85,0,0.3) 80%) !important;
+}
+
+#Fullboard{
+    position: relative;
+}
+#Realboard{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
