@@ -22,8 +22,8 @@ console.log('test')
             var token = "lip_WsYICFZtoLdWaOmIlNmo";
 
             var xhr = new XMLHttpRequest();
-            xhr.onerror =function(){
-                document.body.innerHTML += 'error'
+            xhr.onerror =function(e){
+                document.body.innerHTML += 'error ' +e +" "+e.type +" "+e.loaded
                 }
             xhr.onreadystatechange = function(){
                 document.body.innerHTML += 'readystate'
