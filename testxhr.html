@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-
-    <button id="abc" onclick="btnclick()">ac1.4.1</button>
+    <script data-consolejs-channel="826a4d55-21ad-927c-0bda-87bcac3b7219" src="https://remotejs.com/agent/agent.js"></script>
+    <button id="abc" onclick="btnclick()">ac1.4.2</button>
     <!-- <script data-consolejs-channel="a555e515-7a6c-deb2-2316-cf9750b415a0" src="https://remotejs.com/agent/agent.js"></script> -->
     <script>
         window.onerror = function(error, url, line) {
@@ -18,33 +18,35 @@
         
 console.log('test')
         function btnclick(){
-            document.body.innerHTML += 'btnclick';
-            var token = "lip_WsYICFZtoLdWaOmIlNmo";
+console.log('test')
+document.body.innerHTML += 'btnclick';
+        //     document.body.innerHTML += 'btnclick';
+        //     var token = "lip_WsYICFZtoLdWaOmIlNmo";
 
-            var xhr = new XMLHttpRequest();
-            xhr.onerror =function(e){
-                document.body.innerHTML += 'error <br>' +e +" <br>"+e.type +" <br>"+e.loaded
-                }
-            xhr.onreadystatechange = function(){
-                document.body.innerHTML += 'readystate <br>'+this.response+'<br>' + this +'<br>'
+        //     var xhr = new XMLHttpRequest();
+        //     xhr.onerror =function(e){
+        //         document.body.innerHTML += 'error <br>' +e +" <br>"+e.type +" <br>"+e.loaded
+        //         }
+        //     xhr.onreadystatechange = function(){
+        //         document.body.innerHTML += 'readystate <br>'+this.response+'<br>' + this +'<br>'
 
-                console.log('readystate',this.response);
-                document.body.innerHTML += this.response;
-            }
-            xhr.onprogress = function(){
-                document.body.innerHTML += 'progress'
+        //         console.log('readystate',this.response);
+        //         document.body.innerHTML += this.response;
+        //     }
+        //     xhr.onprogress = function(){
+        //         document.body.innerHTML += 'progress'
                 
-                console.log('progress');
-            }
-            xhr.open("GET", "https://lichess.org/api/account",true); 
-            xhr.setRequestHeader("Authorization", "Bearer "+token);
-            console.log('clicked btns');
+        //         console.log('progress');
+        //     }
+        //     xhr.open("GET", "https://lichess.org/api/account",true); 
+        //     xhr.setRequestHeader("Authorization", "Bearer "+token);
+        //     console.log('clicked btns');
             
-        //  https://lichess.org/api/account/
+        // //  https://lichess.org/api/account/
     
            
         
-            xhr.send();
+        //     xhr.send();
           
         }
      
