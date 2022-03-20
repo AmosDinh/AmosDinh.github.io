@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <button id="abc" onclick="btnclick()">ac1.1</button>
+    <button id="abc" onclick="btnclick()">ac1.2</button>
     <!-- <script data-consolejs-channel="a555e515-7a6c-deb2-2316-cf9750b415a0" src="https://remotejs.com/agent/agent.js"></script> -->
     <script>
         window.onerror = function(error, url, line) {
@@ -23,13 +23,16 @@ console.log('test')
 
             var xhr = new XMLHttpRequest();
             xhr.onerror =function(){
-                    console.log('errror');
+                document.body.innerHTML += 'error'
                 }
             xhr.onreadystatechange = function(){
+                document.body.innerHTML += 'readystate'
+
                 console.log('readystate',this.response);
                 document.body.innerHTML += this.response;
             }
             xhr.onprogress = function(){
+                document.body.innerHTML += 'progress'
                 
                 console.log('progress');
             }
