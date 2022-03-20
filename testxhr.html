@@ -8,18 +8,37 @@
 </head>
 <body>
 
-    <button id="abc">acv</button>
+    <button id="abc" onclick="btnclick()">acvda</button>
+    <script data-consolejs-channel="a555e515-7a6c-deb2-2316-cf9750b415a0" src="https://remotejs.com/agent/agent.js"></script>
     <script>
-        var token = 'lip_WsYICFZtoLdWaOmIlNmo';
-        var xhr = new XMLHttpRequest();
-     
-        xhr.open('GET', 'https://lichess.org/api/account');
-        xhr.setRequestHeader('Authorization', 'Bearer '+token);
 
-        xhr.onreadystatechange = function(){
-             console.log(this.response)
+        function btnclick(){
+            var token = "lip_WsYICFZtoLdWaOmIlNmo";
+
+            var xhr = new XMLHttpRequest();
+            xhr.onerror =function(){
+                    console.log('errror');
+                }
+            xhr.onreadystatechange = function(){
+                console.log('readystate',this.response);
+                document.body.innerHTML += this.response;
+            }
+            xhr.onprogress = function(){
+                
+                console.log('progress');
+            }
+            xhr.open("GET", "https://lichess.org/api/account",true); 
+            xhr.setRequestHeader("Authorization", "Bearer "+token);
+            console.log('clicked btns');
+            
+        //  https://lichess.org/api/account/
+    
+           
+        
+            xhr.send();
+          
         }
-        xhr.send()
+     
     </script>
     <!-- <script src="src/check_lichess_comp.js"></script> -->
 
