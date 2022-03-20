@@ -9,7 +9,7 @@
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- <script data-consolejs-channel="826a4d55-21ad-927c-0bda-87bcac3b7219" src="https://remotejs.com/agent/agent.js"></script> -->
-    <button id="abc" onclick="btnclick()">ac1.4.7.4</button>
+    <button id="abc" onclick="btnclick()">ac1.4.7.5</button>
     <!-- <script data-consolejs-channel="a555e515-7a6c-deb2-2316-cf9750b415a0" src="https://remotejs.com/agent/agent.js"></script> -->
     <script>
         window.onerror = function(error, url, line) {
@@ -23,7 +23,7 @@ console.log('test')
         function btnclick(){
 
 document.body.innerHTML += 'btnclick';
-var URL = "https://lichess.org/api/account";
+
 
 
 // $.ajax({
@@ -49,48 +49,81 @@ var URL = "https://lichess.org/api/account";
                 
 //             }
 //         });
-            document.body.innerHTML += 'btnclick';
-            var token = "lip_WsYICFZtoLdWaOmIlNmo";
+//             document.body.innerHTML += 'btnclick';
+//             var token = "lip_WsYICFZtoLdWaOmIlNmo";
 
-            var xhr = new XMLHttpRequest();
-            xhr.onerror =function(){
-                document.body.innerHTML += 'error <br>'
+//             var xhr = new XMLHttpRequest();
+//             xhr.onerror =function(){
+//                 document.body.innerHTML += 'error <br>'
                 
-                for (var x in this){console.log(xhr.status);
-                    document.body.innerHTML += x+' :: '+this[x]+' <br>' ;
-                    if (x == 'getResponseHeader'){
-                        // document.body.innerHTML += x+' rrr:: '+this[x]()+' <br>' ;
+//                 for (var x in this){console.log(xhr.status);
+//                     document.body.innerHTML += x+' :: '+this[x]+' <br>' ;
+//                     if (x == 'getResponseHeader'){
+//                         // document.body.innerHTML += x+' rrr:: '+this[x]()+' <br>' ;
 
-                    }
-}                   
+//                     }
+// }                   
                 
-                }
-            xhr.onreadystatechange = function(){
-                console.log(this)
-                document.body.innerHTML += 'readystate <br>'+this.response+'<br>' + this +'<br>'
+//                 }
+//             xhr.onreadystatechange = function(){
+//                 console.log(this)
+//                 document.body.innerHTML += 'readystate <br>'+this.response+'<br>' + this +'<br>'
 
-                console.log('readystate',this.response);
-                document.body.innerHTML += this.response;
-            }
-            xhr.onprogress = function(){
-                document.body.innerHTML += 'progress'
+//                 console.log('readystate',this.response);
+//                 document.body.innerHTML += this.response;
+//             }
+//             xhr.onprogress = function(){
+//                 document.body.innerHTML += 'progress'
                 
-                console.log('progressss   ',this.status);
-            }
-            xhr.open("GET", "https://lichess.org/api/account",true); 
-            // xhr.withCredentials = true;
-            // xhr.setRequestHeader("Authorization", "Bearer lip_WsYICFZtoLdWaOmIlNmo");
-            // xhr.setRequestHeader("Access-Control-Allow-Headers","*")
-            console.log('clicked btns');
+//                 console.log('progressss   ',this.status);
+//             }
+//             xhr.open("GET", "https://lichess.org/api/account",true); 
+//             // xhr.withCredentials = true;
+//             // xhr.setRequestHeader("Authorization", "Bearer lip_WsYICFZtoLdWaOmIlNmo");
+//             // xhr.setRequestHeader("Access-Control-Allow-Headers","*")
+//             console.log('clicked btns');
             
-        //  https://lichess.org/api/account/
+//         //  https://lichess.org/api/account/
     
            
         
-            xhr.send();
+//             xhr.send();
           
-        }
-     
+//         }
+
+        var createCORSRequest = function(method, url) {
+                var xhr = new XMLHttpRequest();
+                if ("withCredentials" in xhr) {
+                    // Most browsers.
+                    xhr.open(method, url, true);
+                } else if (typeof XDomainRequest != "undefined") {
+                    // IE8 & IE9
+                    xhr = new XDomainRequest();
+                    xhr.open(method, url);
+                } else {
+                    // CORS not supported.
+                    xhr = null;
+                }
+                return xhr;
+                };
+
+            var url = 'https://lichess.org/api/account';
+            var method = 'GET';
+            var xhr = createCORSRequest(method, url);
+            xhr.setRequestHeader("Authorization", "Bearer "+'lip_WsYICFZtoLdWaOmIlNmo')
+            xhr.onload = function() {
+            // Success code goes here.
+            document.body.innerHTML += this.status + ' status success<br>'
+
+            };
+
+            xhr.onerror = function() {
+                document.body.innerHTML += this.status + ' status error<br>'
+            // Error code goes here.
+            };
+
+            xhr.send();
+            }
     </script>
     <!-- <script src="src/check_lichess_comp.js"></script> -->
 
