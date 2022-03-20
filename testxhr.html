@@ -9,7 +9,7 @@
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- <script data-consolejs-channel="826a4d55-21ad-927c-0bda-87bcac3b7219" src="https://remotejs.com/agent/agent.js"></script> -->
-    <button id="abc" onclick="btnclick()">ac1.4.7.3</button>
+    <button id="abc" onclick="btnclick()">ac1.4.7.4</button>
     <!-- <script data-consolejs-channel="a555e515-7a6c-deb2-2316-cf9750b415a0" src="https://remotejs.com/agent/agent.js"></script> -->
     <script>
         window.onerror = function(error, url, line) {
@@ -55,6 +55,7 @@ var URL = "https://lichess.org/api/account";
             var xhr = new XMLHttpRequest();
             xhr.onerror =function(){
                 document.body.innerHTML += 'error <br>'
+                
                 for (var x in this){console.log(xhr.status);
                     document.body.innerHTML += x+' :: '+this[x]+' <br>' ;
                     if (x == 'getResponseHeader'){
@@ -65,6 +66,7 @@ var URL = "https://lichess.org/api/account";
                 
                 }
             xhr.onreadystatechange = function(){
+                console.log(this)
                 document.body.innerHTML += 'readystate <br>'+this.response+'<br>' + this +'<br>'
 
                 console.log('readystate',this.response);
@@ -76,7 +78,9 @@ var URL = "https://lichess.org/api/account";
                 console.log('progressss   ',this.status);
             }
             xhr.open("GET", "https://lichess.org/api/account",true); 
-            xhr.setRequestHeader("Authorization", "Bearer lip_WsYICFZtoLdWaOmIlNmo");
+            // xhr.withCredentials = true;
+            // xhr.setRequestHeader("Authorization", "Bearer lip_WsYICFZtoLdWaOmIlNmo");
+            // xhr.setRequestHeader("Access-Control-Allow-Headers","*")
             console.log('clicked btns');
             
         //  https://lichess.org/api/account/
